@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A tiny Jev-style decision API for the decisions that do not need more discussion."
+    />
+    <title>Not Jev — API documentation</title>
+    <link rel="canonical" href="https://not-jev.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://not-jev.dev/" />
+    <meta property="og:title" content="Not Jev — API documentation" />
+    <meta
+      property="og:description"
+      content="Four endpoints. Three firm opinions. One questionable source of wisdom."
+    />
+    <meta property="og:image" content="https://not-jev.dev/assets/not-jev-social-card.png" />
+    <meta property="og:image:width" content="1733" />
+    <meta property="og:image:height" content="907" />
+    <meta
+      property="og:image:alt"
+      content="A googly-eyed potato in a graduation cap holding a Magic 8 Ball"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Not Jev — API documentation" />
+    <meta
+      name="twitter:description"
+      content="Four endpoints. Three firm opinions. One questionable source of wisdom."
+    />
+    <meta name="twitter:image" content="https://not-jev.dev/assets/not-jev-social-card.png" />
+    <meta
+      name="twitter:image:alt"
+      content="A googly-eyed potato in a graduation cap holding a Magic 8 Ball"
+    />
+    <link rel="icon" type="image/png" href="assets/not-jev-favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">A decision API with absolutely no nuance</p>
+        <div class="brand-lockup">
+          <img
+            class="brand-mascot"
+            src="assets/not-jev-logo.png"
+            alt="A confidently clueless potato in a graduation cap, holding an eight ball"
+          />
+          <h1>Not Jev</h1>
+        </div>
+        <p class="intro">
+          Four endpoints. Three firm opinions. One questionable source of wisdom.
+        </p>
+        <a class="button" href="#endpoints">Read the API docs</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="endpoints" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">The API</p>
+          <h2>Available endpoints</h2>
+          <p>Every endpoint accepts <code>POST</code> and returns JSON.</p>
+        </div>
+
+        <article class="endpoint">
+          <div class="endpoint-title"><span class="method">POST</span><code>/no</code></div>
+          <p>A decisive noul answer of <code>0</code>. The answer is no.</p>
+          <pre><code>curl -X POST https://api.not-jev.dev/no</code></pre>
+        </article>
+
+        <article class="endpoint">
+          <div class="endpoint-title"><span class="method">POST</span><code>/yes</code></div>
+          <p>A surprisingly decisive noul answer of <code>1</code>. The answer is yes.</p>
+          <pre><code>curl -X POST https://api.not-jev.dev/yes</code></pre>
+        </article>
+
+        <article class="endpoint">
+          <div class="endpoint-title"><span class="method">POST</span><code>/fuck-no</code></div>
+          <p>A noul answer of <code>0</code>, with the appropriate level of emphasis.</p>
+          <pre><code>curl -X POST https://api.not-jev.dev/fuck-no</code></pre>
+        </article>
+
+        <article class="endpoint">
+          <div class="endpoint-title"><span class="method">POST</span><code>/magic-8-ball</code></div>
+          <p>Uniformly chooses one of the classic 20 Magic 8 Ball responses.</p>
+          <pre><code>curl -X POST https://api.not-jev.dev/magic-8-ball</code></pre>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Response format</p>
+          <h2>Typed answers, tiny stakes</h2>
+          <p>Responses follow the Jev-style <code>model</code>, <code>answers</code>, and <code>usage</code> envelope.</p>
+        </div>
+        <pre class="large-code"><code>{
+  "model": "no-as-a-service",
+  "answers": {
+    "answer": {
+      "type": "noul",
+      "noul": 0
+    }
+  },
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "response": "fuck no"
+}</code></pre>
+        <p class="note">
+          Noul responses use <code>0</code> for no and <code>1</code> for yes. The
+          Magic 8 Ball endpoint returns a <code>choice</code> with a uniform
+          probability for each classic response. Token usage is always zero.
+        </p>
+      </section>
+
+      <section class="section compact">
+        <div class="section-heading">
+          <p class="eyebrow">Errors</p>
+          <h2>Keep it simple</h2>
+          <p>Unknown paths return <code>404</code>. Methods other than <code>POST</code> return <code>405</code>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>Not Jev</span>
+        <span>For decisions with a sense of humour.</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -5,8 +5,6 @@
 [![Documentation](https://img.shields.io/badge/docs-not--jev.dev-EE5948?style=for-the-badge)](https://not-jev.dev)
 [![API](https://img.shields.io/badge/API-api.not--jev.dev-262832?style=for-the-badge)](https://api.not-jev.dev)
 
-The API and documentation site are served by one Cloudflare Worker deployment.
-
 ## API
 
 All endpoints accept `POST` requests and return a JSON envelope with a typed answer, zero token usage, and a readable `response`.

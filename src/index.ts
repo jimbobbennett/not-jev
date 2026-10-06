@@ -42,6 +42,10 @@ type JevStyleResponse = {
   response: string;
 };
 
+type Env = {
+  ASSETS: { fetch(request: Request): Promise<Response> };
+};
+
 function envelope(answer: NoulAnswer | ChoiceAnswer, response: string): JevStyleResponse {
   return {
     model: MODEL,
@@ -79,12 +83,19 @@ function methodNotAllowed(): Response {
 }
 
 export default {
-  fetch(request: Request): Response {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+
+    // Keep the site on the apex hostname and expose the decisions on the API hostname.
+    if (url.hostname === "not-jev.dev") {
+      return env.ASSETS.fetch(request);
+    }
+
     if (request.method !== "POST") {
       return methodNotAllowed();
     }
 
-    const path = new URL(request.url).pathname.replace(/\/$/, "") || "/";
+    const path = url.pathname.replace(/\/$/, "") || "/";
 
     switch (path) {
       case "/no":

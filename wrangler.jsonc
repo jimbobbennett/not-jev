@@ -8,11 +8,17 @@
     {
       "pattern": "not-jev.dev",
       "custom_domain": true
+    },
+    {
+      "pattern": "api.not-jev.dev",
+      "custom_domain": true
     }
   ],
   "assets": {
     "directory": "./docs",
+    "binding": "ASSETS",
     "run_worker_first": [
+      "/",
       "/no*",
       "/yes*",
       "/fuck-no*",

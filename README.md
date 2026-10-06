@@ -2,7 +2,7 @@
 
 ![Not Jev mascot: a confidently clueless potato in a graduation cap holding a Magic 8 Ball](docs/assets/not-jev-logo.png)
 
-The API and documentation site will both be available at **[not-jev.dev](https://not-jev.dev)** once deployment and DNS setup are complete. The docs are deployed as static assets alongside the API in one Cloudflare Worker.
+The API will be available at **[api.not-jev.dev](https://api.not-jev.dev)** and the documentation site at **[not-jev.dev](https://not-jev.dev)**. Both are served by one Cloudflare Worker deployment.
 
 ## API
 
@@ -18,7 +18,7 @@ All endpoints accept `POST` requests and return a JSON envelope with a typed ans
 For example:
 
 ```sh
-curl -X POST https://not-jev.dev/fuck-no
+curl -X POST https://api.not-jev.dev/fuck-no
 ```
 
 ```json

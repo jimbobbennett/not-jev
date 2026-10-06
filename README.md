@@ -2,7 +2,7 @@
 
 ![Not Jev mascot: a confidently clueless potato in a graduation cap holding a Magic 8 Ball](docs/assets/not-jev-logo.png)
 
-**Not Jev** is a comedy decision API built as a Cloudflare Worker. It mirrors Jev's typed decision response style for the questions that deserve an emphatic answer, plus a Magic 8 Ball for when certainty would be irresponsible.
+**Not Jev** is a comedy decision API built as a Cloudflare Worker, with a static documentation site for the questions that deserve an emphatic answer, plus a Magic 8 Ball for when certainty would be irresponsible. Source code: [jimbobbennett/not-jev](https://github.com/jimbobbennett/not-jev).
 
 The API will be available at **[api.not-jev.dev](https://api.not-jev.dev)** and the API documentation site at **[not-jev.dev](https://not-jev.dev)** once deployment and DNS setup are complete.
 
@@ -25,7 +25,7 @@ curl -X POST https://api.not-jev.dev/fuck-no
 
 ```json
 {
-  "model": "no-as-a-service",
+  "model": "not-jev",
   "answers": {
     "answer": {
       "type": "noul",
@@ -66,21 +66,8 @@ npm run deploy
 
 The Wrangler configuration attaches the Worker to `api.not-jev.dev` as a Cloudflare Worker custom domain.
 
-## Deploy the documentation site
+## Host the documentation site on Cloudflare Pages
 
-The static documentation lives in [`docs/`](docs/). The workflow at [`.github/workflows/pages.yml`](.github/workflows/pages.yml) publishes it to GitHub Pages when changes reach `main`.
+The static documentation lives in [`docs/`](docs/). Create a Cloudflare Pages project connected to this GitHub repository and configure it to publish the `docs/` directory. This is a static site, so no build command is needed. Add `not-jev.dev` as the Pages custom domain and follow the Cloudflare dashboard prompts to activate DNS and HTTPS.
 
-In the GitHub repository, select **Settings → Pages → GitHub Actions** as the publishing source and set the custom domain to `not-jev.dev`. In Cloudflare DNS, configure the GitHub Pages apex records as **DNS only**:
-
-| Type | Name | Value |
-| --- | --- | --- |
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| AAAA | `@` | `2606:50c0:8000::153` |
-| AAAA | `@` | `2606:50c0:8001::153` |
-| AAAA | `@` | `2606:50c0:8002::153` |
-| AAAA | `@` | `2606:50c0:8003::153` |
-
-Once GitHub verifies the custom domain and provisions HTTPS, enable **Enforce HTTPS** in Pages settings. The Pages workflow deploys the static site; the Worker is deployed separately with Wrangler.
+The Worker remains a separate deployment, attached to `api.not-jev.dev` by Wrangler. Keep the Pages custom domain on `not-jev.dev` and the API custom domain on `api.not-jev.dev`.

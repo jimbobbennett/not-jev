@@ -1,4 +1,4 @@
-const MODEL = "no-as-a-service";
+const MODEL = "not-jev";
 
 const MAGIC_8_BALL_RESPONSES = [
   "It is certain.",

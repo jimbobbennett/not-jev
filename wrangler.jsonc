@@ -6,8 +6,17 @@
   "workers_dev": false,
   "routes": [
     {
-      "pattern": "api.not-jev.dev",
+      "pattern": "not-jev.dev",
       "custom_domain": true
     }
-  ]
+  ],
+  "assets": {
+    "directory": "./docs",
+    "run_worker_first": [
+      "/no*",
+      "/yes*",
+      "/fuck-no*",
+      "/magic-8-ball*"
+    ]
+  }
 }

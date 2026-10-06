@@ -40,7 +40,7 @@
   <body>
     <header class="hero">
       <div class="container">
-        <p class="eyebrow">A decision API with absolutely no nuance</p>
+        <p class="eyebrow">Announcing the first ever no decision API!</p>
         <div class="brand-lockup">
           <img
             class="brand-mascot"
@@ -57,6 +57,28 @@
     </header>
 
     <main class="container">
+      <section class="comparison" aria-labelledby="comparison-title">
+        <p class="eyebrow">The extremely scientific comparison</p>
+        <h2 id="comparison-title">Jev thinks. Not Jev has already decided.</h2>
+        <div class="comparison-grid">
+          <article class="comparison-item">
+            <h3>Faster</h3>
+            <p><strong>Jev:</strong> 70–500 ms, as reported by <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe</a>.</p>
+            <p><strong>Not Jev:</strong> 97 ms fastest observed request, after one warm-up.</p>
+          </article>
+          <article class="comparison-item">
+            <h3>Cheaper</h3>
+            <p><strong>Jev:</strong> $0.042 per million input tokens; output tokens are free</p>
+            <p><strong>Not Jev:</strong> $0 per decision</p>
+          </article>
+          <article class="comparison-item">
+            <h3>More deterministic</h3>
+            <p><strong>Jev:</strong> Sometimes yes, sometimes no, sometimes maybe. Your input has a say.</p>
+            <p><strong>Not Jev:</strong> Always the same answer for the same endpoint. No ambiguity.</p>
+          </article>
+        </div>
+      </section>
+
       <section id="endpoints" class="section">
         <div class="section-heading">
           <p class="eyebrow">The API</p>
@@ -114,14 +136,6 @@
           Magic 8 Ball endpoint returns a <code>choice</code> with a uniform
           probability for each classic response. Token usage is always zero.
         </p>
-      </section>
-
-      <section class="section compact">
-        <div class="section-heading">
-          <p class="eyebrow">Errors</p>
-          <h2>Keep it simple</h2>
-          <p>Unknown paths return <code>404</code>. Methods other than <code>POST</code> return <code>405</code>.</p>
-        </div>
       </section>
     </main>
 

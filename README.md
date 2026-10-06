@@ -2,7 +2,10 @@
 
 ![Not Jev mascot: a confidently clueless potato in a graduation cap holding a Magic 8 Ball](docs/assets/not-jev-logo.png)
 
-The API will be available at **[api.not-jev.dev](https://api.not-jev.dev)** and the documentation site at **[not-jev.dev](https://not-jev.dev)**. Both are served by one Cloudflare Worker deployment.
+[![Documentation](https://img.shields.io/badge/docs-not--jev.dev-EE5948?style=for-the-badge)](https://not-jev.dev)
+[![API](https://img.shields.io/badge/API-api.not--jev.dev-262832?style=for-the-badge)](https://api.not-jev.dev)
+
+The API and documentation site are served by one Cloudflare Worker deployment.
 
 ## API
 

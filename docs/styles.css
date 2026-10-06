@@ -96,6 +96,52 @@ h1 {
   padding: 4rem 0 0.5rem;
 }
 
+.comparison {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #f2c5bc;
+  border-radius: 0.9rem;
+  background: #fff4f1;
+}
+
+.comparison > h2 {
+  margin-bottom: 1.25rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.comparison-item {
+  padding: 1rem;
+  border: 1px solid #f0d8d3;
+  border-radius: 0.65rem;
+  background: var(--card);
+}
+
+.comparison-item h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+}
+
+.comparison-item p,
+.comparison-note {
+  margin: 0 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.comparison-item p:last-child {
+  margin-bottom: 0;
+}
+
+.comparison-note {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+}
+
 .section-heading {
   margin-bottom: 1.5rem;
 }
@@ -192,6 +238,10 @@ footer {
 
   .endpoint {
     padding: 1rem;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-inner {
